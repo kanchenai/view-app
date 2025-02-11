@@ -15,7 +15,7 @@ require("../../css/style.css");
  * view-app的版本号
  * @type {string}
  */
-export var version = "0.6.7(2024-03-01)";
+export var version = "0.6.7(2025-02-11)";
 
 export default class Application extends GroupView {
     constructor(id) {
@@ -120,10 +120,10 @@ export default class Application extends GroupView {
         if (!delay) {
             delay = 1;
         }
-
+        var application = this;
         setTimeout(function () {
             //获取退出app的目标地址
-            var exitUrl = this.exitUrl();
+            var exitUrl = application.exitUrl();
             if (exitUrl) {
                 location.href = exitUrl;
             } else {

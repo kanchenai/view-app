@@ -39,7 +39,7 @@ export default class PageManager {
         for (var pageInfo of this.pageInfoList) {
             var page = this.createPageByName(pageInfo.pageName);
             page.application = this.application;
-            page.param = pageInfo.param;//将数据保存在爬格子中
+            page.param = pageInfo.param;//将数据保存在栈中
             this.application.pageList.push(page);
         }
     }

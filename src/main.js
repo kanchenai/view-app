@@ -18,6 +18,7 @@ import {FocusViewBuilder} from "@src/custom-view/focus/FocusView";
 import {PainterViewBuilder} from "@src/custom-view/painter/PainterView";
 import {HuarongViewBuilder} from "@src/custom-view/huarong/HuarongView";
 
+var mode = process.env.NODE_ENV || "production";//获取当前的模式,development:开发模式；production：生产模式
 
 var start = new Date().getTime();
 window.onload = function () {
@@ -33,13 +34,14 @@ window.onload = function () {
     //需要在css加载完之后才能启动app
 
     var application = new MyApplication("app");
-    window.application = application;//TODO 调试结束后，注释当前行代码，全局无法获取到application对象，安全性更高
+    if(mode != "production"){//使用生产模式打包时，全局application不赋值，但在实际适配过程中，可能是用调试模式打包，所以这里需要根据实际情况判定
+        window.application = application;//TODO 调试结束后，注释当前行代码，全局无法获取到application对象，安全性更高
+    }
     application.launch();
 
     //使用默认Application启动
     // new Application("app").launch();
 
-    var mode = process.env.NODE_ENV || "production";//获取当前的模式,development:开发模式；production：生产模式
     console.log(mode, new Date().getTime() - start)
 
     console.log("项目地址：")

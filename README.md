@@ -142,7 +142,7 @@ export default class MyApplication extends Application {
 export default class MyApplication extends Application {
   //如果是android混合模式，也可以在这里调用关闭WebView或关闭android app
   exitUrl() {
-    var url = "";//退出应用跳转的地址，这地址可以自定义，一般由启动应用时，地址栏中的参数，比如：backUrl、returnUrl等
+    var url = "";//退出应用跳转的地址，这地址可以自定义，一般由启动应用时，从地址栏中的参数获取，比如：backUrl、returnUrl等
     return url;
   }
 }
@@ -464,7 +464,7 @@ window.onload = function () {
 
 ### 开发者须知
 
-* 1.该框架的运行环境 node，使用webpack打包
+* 1.该框架的开发环境 node，使用webpack打包
 * 2.当前版在适配中需要调整编译的es版本，在必要时需要舍弃某些写法，使用其他写法，故版本中的框架核心代码都是源码
 * 3.开发者有任何疑问，可以留言
 * 4.如果有建议，也可留言，
